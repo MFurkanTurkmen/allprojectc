@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 using DBConnectProject.entity;
 using DBConnectProject.util;
 
-namespace DBConnectProject.repository
+namespace entityframeworkdeneme1.service
 {
-    internal interface IMusteriRepository : IRepository<Musteri,long>
+    internal interface IMusteriService
     {
+        public void save(Musteri musteri);
+
+
+
         public Musteri getMusteriByEmail(string email);
+       
+
     }
 }

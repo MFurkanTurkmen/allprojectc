@@ -1,18 +1,13 @@
 ﻿
 
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DBConnectProject.entity
 {
-    internal class Musteri
+    public class Musteri
     {
-        /*    
-         *    id bigint primary key IDENTITY (1,1),
-    name varchar(255),
-    surname varchar(255),
-    email varchar(255),
-    password varchar(255),
-    role bigint foreign key references Role(id)
-        */
-
+        [Key]
         public long id{ get; set; }
         public string name{ get; set; }
         public string surname { get; set; }
