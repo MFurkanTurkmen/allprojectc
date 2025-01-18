@@ -1,3 +1,6 @@
+using webuygulama.context;
+using webuygulama.service;
+
 namespace webuygulama
 {
     public class Program
@@ -9,6 +12,9 @@ namespace webuygulama
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<NorthwindContext, NorthwindContext>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -16,6 +22,8 @@ namespace webuygulama
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            
+
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -24,7 +32,9 @@ namespace webuygulama
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "Home/Index/{Id?}",
+                defaults: new {controller = "Home",action="Index"});
+        
 
             app.Run();
         }
